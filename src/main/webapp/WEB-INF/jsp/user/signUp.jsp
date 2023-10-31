@@ -50,11 +50,25 @@
 					$('#idCheckLength').addClass('d-none');
 					$('#idCheckDuplicated').addClass('d-none');
 					$('#idCheckOk').addClass('d-none');
-				})
+					let loginId = $('#loginId').val().trim();
+				
 				$.ajax({
+					url:"/user/is_duplicated_id"
+					,data:{"loginId":loginId}
 					
-				})
-			
+					, success: function(data) {
+						if(data.isDuplicated) {
+							$('#idCheckDuplicated').removeClass('d-none');
+
+						} else {
+							$('#idCheckOk').removeClass('d-none');
+						}
+					}
+					, error: function(request, status, error) {
+						alert("중복확인에 실패했습니다.");
+					}
+					});
+				});
 				
 			$('#signUpForm').on('submit', function(e) {
 				e.preventDefault();

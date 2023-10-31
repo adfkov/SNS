@@ -9,12 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sns.test.mapper.userMapper;
+import com.sns.test.mapper.UserMapper;
 
 @Controller
 public class TestController {
 	@Autowired
-	private userMapper usermapper;
+	private UserMapper usermapper;
 	
 	@ResponseBody
 	@GetMapping("/sns/test1") // string
